@@ -1,0 +1,4 @@
+Flask
+flask-cors
+Pillow>=11
+numpy>=2.1
