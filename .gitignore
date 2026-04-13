@@ -1,0 +1,17 @@
+# Python
+venv/
+backend/venv/
+backend/venv_tf/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+dist/
+
+# Mac
+.DS_Store
+
+# Model files
+*.keras
+*.h5

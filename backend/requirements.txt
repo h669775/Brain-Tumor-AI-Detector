@@ -1,4 +1,7 @@
 Flask
 flask-cors
 Pillow>=11
-numpy>=2.1
+numpy>=1.26,<2.0
+typing-extensions
+six
+tensorflow

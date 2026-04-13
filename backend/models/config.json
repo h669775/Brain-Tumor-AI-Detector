@@ -1,0 +1,13 @@
+{
+  "image_size": [
+    256,
+    256
+  ],
+  "classes": [
+    "glioma",
+    "meningioma",
+    "notumor",
+    "pituitary"
+  ],
+  "preprocessing": "resnet"
+}

@@ -1,19 +1,31 @@
+import numpy as np
+from services.model_loader import load_model_and_labels
 from utils.image_preprocessing import preprocess_uploaded_file
 
 def predict_image(file_storage):
-    processed = preprocess_uploaded_file(file_storage)
+    model, class_names = load_model_and_labels()
 
-    # MOCK RESPONSE FOR NOW
-    # Later replace this with real model inference
+    # Preprocess image
+    processed_image = preprocess_uploaded_file(file_storage)
+
+    # Run prediction
+    predictions = model.predict(processed_image)
+    probabilities = predictions[0]
+
+    # Get best class
+    predicted_index = int(np.argmax(probabilities))
+    predicted_label = class_names[predicted_index]
+    confidence = float(probabilities[predicted_index])
+
+    # Optional: return all probabilities
+    all_probabilities = {
+        class_names[i]: float(probabilities[i])
+        for i in range(len(class_names))
+    }
+
     return {
-        "prediction": "glioma",
-        "confidence": 0.93,
-        "all_probabilities": {
-            "glioma": 0.93,
-            "meningioma": 0.04,
-            "notumor": 0.02,
-            "pituitary": 0.01
-        },
-        "image_shape": processed["shape"],
-        "model_used": "mock-resnet50"
+        "prediction": predicted_label,
+        "confidence": confidence,
+        "all_probabilities": all_probabilities,
+        "model_used": "ResNet50"
     }
