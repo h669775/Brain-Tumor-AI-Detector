@@ -38,13 +38,15 @@ Backend
 1. Gå til backend-mappen:
        cd backend
 2. Opprett og aktiver virtual environment:
-       python3.12 -m venv venv
-       source venv/bin/activate
-3. Installer avhengigheter:
+       python3.12 -m venv venv(Mac/Linux)
+       source venv/bin/activate(Mac/Linux)
+   	   python -m venv venv (Windows)
+       venv\Scripts\activate(Windows)
+4. Installer avhengigheter:
    	   python -m pip install -r requirements.txt
-4. Last ned modellen og legg den i:
+5. Last ned modellen og legg den i:
        backend/models/resnet50_best.keras
-5. Start backend:
+6. Start backend:
        python app.py
 
 Frontend
