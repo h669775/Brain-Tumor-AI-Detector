@@ -27,13 +27,24 @@ Teknologi brukt
 
   Hvordan kjøre prosjektet
 
+Modellfil
+
+Modellen ligger ikke i selve repoet fordi filer er for stor for vanlig GitHub-commit.
+For å kjøre produktet må du først laste ned modellfilen fra GitHub Releases og plassere den her:
+	backend/models/resnet50_best.keras
+
 Backend
 
 1. Gå til backend-mappen:
        cd backend
-2. Aktiver virtual environment:
+2. Opprett og aktiver virtual environment:
+       python3.12 -m venv venv
        source venv/bin/activate
-3. Start serveren:
+3. Installer avhengigheter:
+   	   python -m pip install -r requirements.txt
+4. Last ned modellen og legg den i:
+       backend/models/resnet50_best.keras
+5. Start backend:
        python app.py
 
 Frontend
