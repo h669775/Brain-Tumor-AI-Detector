@@ -54,7 +54,7 @@ Frontend
 1. Gå til frontend-mappen:
        cd frontend
 2. Start prosjektet:
-       npm run install
+       npm install
        npm run dev
 3. Åpne nettleseren på adressen som vises (som regel http://localhost:5173).
 
