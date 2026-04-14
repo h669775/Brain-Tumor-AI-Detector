@@ -46,7 +46,7 @@ Backend
    	   python -m pip install -r requirements.txt
 5. Last ned modellen og legg den i:
        backend/models/resnet50_best.keras
-6. Start backend:
+6. Starpt backend:
        python app.py
 
 Frontend
