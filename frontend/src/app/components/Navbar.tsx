@@ -1,7 +1,11 @@
-import { Link } from 'react-router';
+import { Link, useLocation} from 'react-router';
 import { Brain } from 'lucide-react';
 
 export function Navbar() {
+
+  const location = useLocation();
+  const isLanding = location.pathname === '/';
+
   return (
     <nav className="border-b border-gray-200 bg-white">
       <div className="mx-auto max-w-7xl px-6 py-4">
@@ -12,17 +16,18 @@ export function Navbar() {
             </div>
             <span className="text-xl font-semibold text-gray-900">NeuroDetect</span>
           </Link>
-          
+
+        
           <div className="flex items-center gap-8">
-            <a href="#about" className="text-gray-600 hover:text-gray-900 transition-colors">
-              About
-            </a>
+            
+            {!isLanding && (
             <Link 
-              to="/upload" 
+              to="/" 
               className="px-4 py-2 rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition-colors"
             >
-              Try Model
+              Home Page
             </Link>
+            )}
           </div>
         </div>
       </div>

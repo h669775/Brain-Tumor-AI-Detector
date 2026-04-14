@@ -6,7 +6,7 @@
   "classes": [
     "glioma",
     "meningioma",
-    "notumor",
+    "no tumor",
     "pituitary"
   ],
   "preprocessing": "resnet"
