@@ -1,76 +1,117 @@
-Brain Tumor AI Detector
+# Brain Tumor AI Detector
 
-Dette prosjektet er en enkel webapplikasjon som bruker en maskinlæringsmodell til å klassifisere MR-bilder av hjernen. Målet er å kunne laste opp et bilde og få en prediksjon av hvilken type svulst det kan være (eller om det ikke er svulst).
+A web application that classifies brain MRI scans using a deep learning model. Upload an MRI image and receive an instant AI-powered prediction across four categories.
 
-Hva prosjektet består av
+> **Disclaimer:** This is a demonstration project for educational purposes only. Results are not medically reliable and must not be used for diagnosis. Always consult a qualified medical professional.
 
-Prosjektet er delt i to deler:
-	•	Frontend: Nettsiden brukeren ser og laster opp bilder i
-	•	Backend: Server som tar imot bildet og sender det gjennom modellen
+---
 
-Selve modellen er trent i Google Colab og lagret som en .keras-fil.
+## Features
 
-Hvordan det fungerer
-	1.	Brukeren laster opp et MR-bilde i nettsiden
-	2.	Bildet sendes til backend
-	3.	Backend forbehandler bildet (resize, normalisering osv.)
-	4.	Modellen kjører en prediksjon
-	5.	Resultatet sendes tilbake og vises i frontend
+- Drag-and-drop or click-to-upload MRI image input (PNG, JPG, JPEG)
+- Real-time classification into four categories: **Glioma**, **Meningioma**, **No Tumor**, **Pituitary**
+- Confidence score with visual breakdown for all classes
+- ResNet50 model trained in Google Colab — reported accuracy: **93.4%**
 
-Modellen gjør kun prediksjoner og lærer ikke under bruk.
+---
 
-Teknologi brukt
-	•	React + TypeScript (frontend)
-	•	Flask (backend)
-	•	TensorFlow / Keras (modell)
-	•	Python
+## Tech Stack
 
-  Hvordan kjøre prosjektet
+| Layer     | Technology                                      |
+|-----------|-------------------------------------------------|
+| Frontend  | React 18, TypeScript, Vite, Tailwind CSS, Radix UI |
+| Backend   | Python 3.12, Flask, Flask-CORS                  |
+| ML        | TensorFlow / Keras, ResNet50, NumPy, Pillow     |
 
-Modellfil
+---
 
-Modellen ligger ikke i selve repoet fordi filer er for stor for vanlig GitHub-commit.
-For å kjøre produktet må du først laste ned modellfilen fra GitHub Releases og plassere den her:
-	backend/models/resnet50_best.keras
+## Project Structure
 
-Backend
+```
+Brain-Tumor-AI-Detector/
+├── backend/
+│   ├── app.py                    # Flask entry point (port 5000)
+│   ├── config.py                 # App configuration
+│   ├── requirements.txt
+│   ├── models/
+│   │   ├── resnet50_best.keras   # Model file (download separately — see below)
+│   │   ├── class_names.json      # Class label definitions
+│   │   └── config.json           # Image size and preprocessing config
+│   ├── routes/
+│   │   └── predict.py            # POST /predict endpoint
+│   ├── services/
+│   │   ├── model_loader.py
+│   │   └── inference_service.py
+│   └── utils/
+│       ├── image_preprocessing.py
+│       └── response_helpers.py
+└── frontend/
+    ├── index.html
+    ├── vite.config.ts
+    └── src/
+        └── app/
+            ├── pages/            # Landing, Upload, Loading, Result
+            └── components/       # Navbar, UI components
+```
 
-1. Gå til backend-mappen:
-       cd backend
-2. Opprett og aktiver virtual environment:
-       python3.12 -m venv venv(Mac/Linux)
-       source venv/bin/activate(Mac/Linux)
-   	   python -m venv venv (Windows)
-       venv\Scripts\activate(Windows)
-4. Installer avhengigheter:
-   	   python -m pip install -r requirements.txt
-5. Last ned modellen og legg den i:
-       backend/models/resnet50_best.keras
-6. Starpt backend:
-       python app.py
+---
 
-Frontend
+## Setup
 
-1. Gå til frontend-mappen:
-       cd frontend
-2. Start prosjektet:
-       npm install
-       npm run dev
-3. Åpne nettleseren på adressen som vises (som regel http://localhost:5173).
+### Prerequisites
 
-Viktig
+- Python 3.12
+- Node.js + npm
+- The model file `resnet50_best.keras` (see below)
 
-Dette er kun et demonstrasjonsprosjekt.
-Resultatene fra modellen er ikke medisinsk pålitelige og skal ikke brukes til diagnose.
+### 1. Download the model
 
-Videre arbeid
+The model file is too large to include in the repository. Download `resnet50_best.keras` from [GitHub Releases](../../releases) and place it at:
 
-Mulige forbedringer:
-	•	teste flere modeller og sammenligne resultater
-	•	forbedre brukergrensesnitt
-	•	legge til flere evalueringsmetoder
-	•	bruke større og mer variert datasett
+```
+backend/models/resnet50_best.keras
+```
 
+### 2. Backend
 
+```bash
+cd backend
+python3.12 -m venv venv
+source venv/bin/activate        # Windows: venv\Scripts\activate
+python -m pip install -r requirements.txt
+python app.py
+```
 
+The backend runs at `http://127.0.0.1:5000`.
 
+### 3. Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Open `http://localhost:5173` in your browser.
+
+---
+
+## How It Works
+
+1. User uploads an MRI image on the Upload page.
+2. The image is sent to the backend's `POST /predict` endpoint.
+3. Backend resizes the image to 256×256 and applies ResNet50 preprocessing.
+4. The model outputs probabilities for all four classes.
+5. Results are returned to the frontend and displayed with a confidence breakdown.
+
+The model only performs inference — it does not learn or update during use.
+
+---
+
+## Possible Improvements
+
+- Evaluate and compare additional model architectures
+- Train on a larger and more diverse dataset
+- Add Grad-CAM heatmap visualization to highlight regions of interest
+- Add evaluation metrics display (precision, recall, confusion matrix)
+- Improve mobile responsiveness and accessibility
