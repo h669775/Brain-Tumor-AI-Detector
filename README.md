@@ -38,7 +38,7 @@ Brain-Tumor-AI-Detector/
 │   │   ├── class_names.json      # Class label definitions
 │   │   └── config.json           # Image size and preprocessing config
 │   ├── routes/
-│   │   └── predict.py            # POST /predict endpoint
+│   │   └── predict.py           # POST /predict endpoint
 │   ├── services/
 │   │   ├── model_loader.py
 │   │   └── inference_service.py
@@ -46,12 +46,15 @@ Brain-Tumor-AI-Detector/
 │       ├── image_preprocessing.py
 │       └── response_helpers.py
 └── frontend/
-    ├── index.html
-    ├── vite.config.ts
-    └── src/
-        └── app/
-            ├── pages/            # Landing, Upload, Loading, Result
-            └── components/       # Navbar, UI components
+|    ├── index.html
+|   ├── vite.config.ts
+|    └── src/
+|        └── app/
+|            ├── pages/            # Landing, Upload, Loading, Result
+|            └── components/      # Navbar, UI components
+└── notebooks
+    ├──All_Model.ipynb
+    ├── ResNetModel.ipynb
 ```
 
 ---
