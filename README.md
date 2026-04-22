@@ -11,7 +11,7 @@ A web application that classifies brain MRI scans using a deep learning model. U
 - Drag-and-drop or click-to-upload MRI image input (PNG, JPG, JPEG)
 - Real-time classification into four categories: **Glioma**, **Meningioma**, **No Tumor**, **Pituitary**
 - Confidence score with visual breakdown for all classes
-- ResNet50 model trained in Google Colab — reported accuracy: **93.4%**
+- ResNet50 model trained in Google Colab — reported accuracy: **94.19%**
 
 ---
 
