@@ -17,7 +17,6 @@ def predict_image(file_storage):
     predicted_label = class_names[predicted_index]
     confidence = float(probabilities[predicted_index])
 
-    # Optional: return all probabilities
     all_probabilities = {
         class_names[i]: float(probabilities[i])
         for i in range(len(class_names))
