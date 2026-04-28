@@ -11,7 +11,7 @@ A web application that classifies brain MRI scans using a deep learning model. U
 - Drag-and-drop or click-to-upload MRI image input (PNG, JPG, JPEG)
 - Real-time classification into four categories: **Glioma**, **Meningioma**, **No Tumor**, **Pituitary**
 - Confidence score with visual breakdown for all classes
-- ResNet50 model trained in Google Colab — reported accuracy: **94.7%**
+- ResNet50 model trained in Google Colab — reported accuracy: **95.06%**
 
 ---
 
@@ -38,7 +38,7 @@ Brain-Tumor-AI-Detector/
 │   │   ├── class_names.json      # Class label definitions
 │   │   └── config.json           # Image size and preprocessing config
 │   ├── routes/
-│   │   └── predict.py            # POST /predict endpoint
+│   │   └── predict.py           # POST /predict endpoint
 │   ├── services/
 │   │   ├── model_loader.py
 │   │   └── inference_service.py
@@ -46,12 +46,15 @@ Brain-Tumor-AI-Detector/
 │       ├── image_preprocessing.py
 │       └── response_helpers.py
 └── frontend/
-    ├── index.html
-    ├── vite.config.ts
-    └── src/
-        └── app/
-            ├── pages/            # Landing, Upload, Loading, Result
-            └── components/       # Navbar, UI components
+|    ├── index.html
+|   ├── vite.config.ts
+|    └── src/
+|        └── app/
+|            ├── pages/            # Landing, Upload, Loading, Result
+|            └── components/      # Navbar, UI components
+└── notebooks
+    ├──All_Model.ipynb                           # Other models trained
+    ├── BrainTumor-Detection-ResNet50.ipynb      # ResNet50 v3
 ```
 
 ---
