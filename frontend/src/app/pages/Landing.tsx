@@ -35,7 +35,7 @@ export function Landing() {
           </Link>
           
           <p className="text-sm text-gray-500 mt-4">
-            Accuracy: 95.06% (ResNet50)
+            Accuracy: 95.47% (DenseNet121)
           </p>
         </div>
         

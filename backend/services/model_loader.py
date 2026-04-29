@@ -3,7 +3,7 @@ import json
 import tensorflow as tf
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MODEL_PATH = os.path.join(BASE_DIR, "models", "resnet50_best.keras")
+MODEL_PATH = os.path.join(BASE_DIR, "models", "densenet121_best.keras")
 CLASS_NAMES_PATH = os.path.join(BASE_DIR, "models", "class_names.json")
 
 _model = None
@@ -14,7 +14,7 @@ def load_model_and_labels():
 
     if not os.path.exists(MODEL_PATH):
         raise FileNotFoundError(
-            "Model file not found. Download 'resnet50_best.keras' from GitHub Releases and place it in backend/models/."
+            "Model file not found. Download 'densenet121_best.keras' from GitHub Releases and place it in backend/models/."
         )
 
     if not os.path.exists(CLASS_NAMES_PATH):

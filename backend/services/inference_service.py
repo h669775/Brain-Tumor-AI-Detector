@@ -26,5 +26,5 @@ def predict_image(file_storage):
         "prediction": predicted_label,
         "confidence": confidence,
         "all_probabilities": all_probabilities,
-        "model_used": "ResNet50"
+        "model_used": "DenseNet121"
     }
