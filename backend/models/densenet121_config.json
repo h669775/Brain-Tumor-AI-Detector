@@ -1,0 +1,29 @@
+{
+  "model": "DenseNet121",
+  "image_size": [
+    256,
+    256
+  ],
+  "batch_size": 16,
+  "epochs": 30,
+  "learning_rate": 0.0005320938918568757,
+  "unfreeze_last_n": 150,
+  "dropout_rate": 0.3626278355535727,
+  "focal_gamma": 0.8640663244916702,
+  "label_smoothing": 0.027137189288685148,
+  "classes": [
+    "glioma",
+    "meningioma",
+    "no tumor",
+    "pituitary"
+  ],
+  "preprocessing": "tf.keras.applications.densenet.preprocess_input",
+  "hpo_method": "Optuna TPE + HyperbandPruner",
+  "n_trials": 8,
+  "best_val_f1_hpo": 0.9639599323272705,
+  "test_loss": 0.05850633233785629,
+  "test_accuracy": 0.9512500166893005,
+  "test_f1_macro": 0.9505120515823364,
+  "unfreeze_range": "10\u2013160",
+  "sampler_seed": 43
+}
