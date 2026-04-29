@@ -49,7 +49,7 @@ export function Landing() {
               Advanced AI Model
             </h3>
             <p className="text-gray-600">
-              State-of-the-art ResNet50 architecture trained on thousands of MRI scans
+              State-of-the-art DenseNet121 architecture trained on thousands of MRI scans
             </p>
           </div>
           
