@@ -52,10 +52,7 @@ Brain-Tumor-AI-Detector/
 |        └── app/
 |            ├── pages/            # Landing, Upload, Loading, Result
 |            └── components/      # Navbar, UI components
-└── notebooks
-    ├──All_Model.ipynb                           # Other models trained
-    ├── BrainTumor-Detection-ResNet50.ipynb      # ResNet50 v3
-```
+└── notebooks/                    #all models trained
 
 ---
 
@@ -65,7 +62,7 @@ Brain-Tumor-AI-Detector/
 
 - Python 3.12
 - Node.js + npm
-- The model file `resnet50_best.keras` (see below)
+- The model file `densenet121_best.keras` (see below)
 
 ### 1. Download the model
 
