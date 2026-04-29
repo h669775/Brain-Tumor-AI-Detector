@@ -11,7 +11,7 @@ A web application that classifies brain MRI scans using a deep learning model. U
 - Drag-and-drop or click-to-upload MRI image input (PNG, JPG, JPEG)
 - Real-time classification into four categories: **Glioma**, **Meningioma**, **No Tumor**, **Pituitary**
 - Confidence score with visual breakdown for all classes
-- ResNet50 model trained in Google Colab — reported accuracy: **95.06%**
+- DenseNet121 model trained in Google Colab — reported accuracy: **95.47%**
 
 ---
 
@@ -69,10 +69,10 @@ Brain-Tumor-AI-Detector/
 
 ### 1. Download the model
 
-The model file is too large to include in the repository. Download `resnet50_best.keras` from [GitHub Releases](../../releases) and place it at:
+The model file is too large to include in the repository. Download `densenet121_best.keras` from [GitHub Releases](../../releases) and place it at:
 
 ```
-backend/models/resnet50_best.keras
+backend/models
 ```
 
 ### 2. Backend
@@ -103,7 +103,7 @@ Open `http://localhost:5173` in your browser.
 
 1. User uploads an MRI image on the Upload page.
 2. The image is sent to the backend's `POST /predict` endpoint.
-3. Backend resizes the image to 256×256 and applies ResNet50 preprocessing.
+3. Backend resizes the image to 256×256 and applies DenseNet121 preprocessing.
 4. The model outputs probabilities for all four classes.
 5. Results are returned to the frontend and displayed with a confidence breakdown.
 
